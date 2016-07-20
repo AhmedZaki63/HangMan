@@ -7,35 +7,36 @@
     tools:context="com.example.lenovo.hangman.StartPage">
 
 
-    <include layout="@layout/tool_bar"
-        android:id="@+id/start_toolbar"/>
+    <include
+        android:id="@+id/start_toolbar"
+        layout="@layout/tool_bar" />
 
 
     <EditText
+        android:id="@+id/takeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Enter Your Name"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        android:ems="10"
-        android:id="@+id/takeName"
-        android:textCursorDrawable="@color/black"
-        android:textColor="@color/black"
-        android:layout_marginTop="70dp"
         android:layout_below="@+id/start_toolbar"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:ems="10"
+        android:hint="Enter Your Name"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textCursorDrawable="@color/black" />
 
     <Button
+        android:id="@+id/btnStart"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Start"
-        android:id="@+id/btnStart"
-        android:onClick="startGame"
-        android:textColor="@color/white"
-        android:background="@color/black"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp" />
+        android:layout_marginBottom="54dp"
+        android:background="@color/black"
+        android:onClick="startGame"
+        android:text="Start"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

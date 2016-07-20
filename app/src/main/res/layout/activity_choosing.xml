@@ -7,15 +7,16 @@
     tools:context="com.example.lenovo.hangman.Choosing">
 
 
-    <include layout="@layout/tool_bar"
-        android:id="@+id/choose_toolbar"/>
+    <include
+        android:id="@+id/choose_toolbar"
+        layout="@layout/tool_bar" />
 
     <ListView
+        android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:elevation="10dp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="55dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:elevation="10dp" />
 </RelativeLayout>
