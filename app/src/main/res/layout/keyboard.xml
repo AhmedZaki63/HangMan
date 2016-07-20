@@ -20,7 +20,10 @@
             android:layout_marginRight="2dp"
             android:layout_weight="1"
             android:background="@color/keyboard"
+<<<<<<< HEAD
             android:onClick="onBtnClicked"
+=======
+>>>>>>> origin/master
             android:scaleType="fitCenter"
             android:src="@drawable/a" />
 
