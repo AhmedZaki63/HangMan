@@ -26,10 +26,11 @@ public class Choosing extends AppCompatActivity {
         catar = getResources().getStringArray(R.array.category);
         mToolBar = (Toolbar) findViewById(R.id.choose_toolbar);
         mToolBar.setTitle("Choose Category");
+        mToolBar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(mToolBar);
         Bundle b1 = getIntent().getExtras();
         name = b1.getString("name");
-        adapter = new ArrayAdapter<String>(this, R.layout.list_custom_try1, R.id.listItem, catar);
+        adapter = new ArrayAdapter<>(this, R.layout.list_custom_try1, R.id.listItem, catar);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -49,12 +50,12 @@ public class Choosing extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-                /*newName.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                newName.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                });*/
+                });
                 newName.create().show();
             }
         });

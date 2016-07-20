@@ -19,7 +19,9 @@
             android:name=".Game"
             android:label="Game" />
         <activity android:name=".Choosing" />
-        <activity android:name=".GameZaki"></activity>
+        <activity android:name=".GameZaki" />
+        <activity android:name=".Winn" />
+        <activity android:name=".Loose"></activity>
     </application>
 
 </manifest>
