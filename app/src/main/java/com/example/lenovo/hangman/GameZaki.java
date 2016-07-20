@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class GameZaki extends AppCompatActivity {
 
@@ -24,8 +25,8 @@ public class GameZaki extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wrong();
                 lives--;
+                wrong();
             }
         });
     }
@@ -33,22 +34,19 @@ public class GameZaki extends AppCompatActivity {
     MediaPlayer mySound;
     Button button;
     ImageView image;
-    int lives = 4;
+    int lives = 5;
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        String ss = String.valueOf(lives);
-        outState.putString("lives", ss);
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("lives", lives);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if (savedInstanceState != null) {
-            lives = savedInstanceState.getInt("lives");
-            wrong();
-        }
+        lives = savedInstanceState.getInt("lives");
+        wrong();
     }
 
     @Override
@@ -76,8 +74,6 @@ public class GameZaki extends AppCompatActivity {
                 button.setText("You Lose :(");
                 button.setClickable(false);
                 break;
-            default:
-                image.setImageResource(R.drawable.life_5);
         }
     }
 }
