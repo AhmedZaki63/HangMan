@@ -21,22 +21,13 @@ public class Choosing extends AppCompatActivity {
     String name;
     Toolbar mToolBar;
     ArrayAdapter<String> adapter;
-    String[] catar={
-            "Anime",
-            "Movies",
-            "Games",
-            "Fruits",
-            "Vegetables",
-            "Countries",
-            "Animals",
-            "Colors",
-            "Football Teams"
-    };
+    String[] catar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosing);
         list=(ListView)findViewById(R.id.listView);
+        catar = getResources().getStringArray(R.array.category);
         mToolBar=(Toolbar)findViewById(R.id.choose_toolbar);
         setSupportActionBar(mToolBar);
         Bundle b1=getIntent().getExtras();

@@ -1,3 +1,164 @@
 <resources>
     <string name="app_name">HangMan</string>
+
+    <string-array name="category">
+        <item>Anime</item>
+        <item>Movies</item>
+        <item>Games</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Countries</item>
+        <item>Animals</item>
+        <item>Colors</item>
+        <item>Football Teams</item>
+    </string-array>
+
+    <string-array name="animeTopic">
+        <item>naruto</item>
+        <item>onepiece</item>
+        <item>deathnote</item>
+        <item>pokemon</item>
+        <item>endride</item>
+        <item>swordart</item>
+    </string-array>
+
+    <string-array name="moviesTopic">
+        <item>batmanvssuperman</item>
+        <item>spiderman</item>
+        <item>antman</item>
+        <item>civilwar</item>
+        <item>hitman</item>
+        <item>minions</item>
+        <item>spy</item>
+        <item>warcraft</item>
+        <item>huntsman</item>
+        <item>zootopia</item>
+        <item>martian</item>
+        <item>home</item>
+        <item>deadpool</item>
+        <item>ironman</item>
+    </string-array>
+
+    <string-array name="teamTopic">
+        <item>barcelona</item>
+        <item>realmadrid</item>
+        <item>arsenal</item>
+        <item>chelsea</item>
+        <item>liverpool</item>
+        <item>sunderland</item>
+        <item>newcastle</item>
+        <item>wimbledon</item>
+        <item>stokecity</item>
+        <item>southampton</item>
+    </string-array>
+
+    <string-array name="gamesTopic">
+        <item>gta</item>
+        <item>castlevania</item>
+        <item>blur</item>
+        <item>farcry</item>
+        <item>darksiders</item>
+        <item>hitman</item>
+        <item>pes</item>
+        <item>wwe</item>
+        <item>fifa</item>
+        <item>prototype</item>
+        <item>syndicate</item>
+        <item>conquer</item>
+    </string-array>
+
+    <string-array name="colorsTopic">
+        <item>red</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>white</item>
+        <item>black</item>
+        <item>brown</item>
+        <item>coral</item>
+        <item>orange</item>
+        <item>yellow</item>
+        <item>violet</item>
+        <item>pink</item>
+        <item>gray</item>
+        <item>gold</item>
+        <item>silver</item>
+        <item>purple</item>
+    </string-array>
+
+    <string-array name="fruitsTopic">
+        <item>apple</item>
+        <item>banana</item>
+        <item>cherry</item>
+        <item>date</item>
+        <item>orange</item>
+        <item>lemon</item>
+        <item>guava</item>
+        <item>blueberry</item>
+        <item>mango</item>
+        <item>peach</item>
+        <item>pear</item>
+        <item>pineapple</item>
+        <item>strawberry</item>
+    </string-array>
+
+    <string-array name="vegetablesTopic">
+        <item>corn</item>
+        <item>pepper</item>
+        <item>mushroom</item>
+        <item>potato</item>
+        <item>pumpkin</item>
+        <item>pea</item>
+        <item>onion</item>
+        <item>tomato</item>
+        <item>eggplant</item>
+        <item>cabbage</item>
+        <item>redchili</item>
+    </string-array>
+
+    <string-array name="animalsTopic">
+        <item>bat</item>
+        <item>bear</item>
+        <item>bee</item>
+        <item>bird</item>
+        <item>butterfly</item>
+        <item>buffalo</item>
+        <item>camel</item>
+        <item>chicken</item>
+        <item>crow</item>
+        <item>deer</item>
+        <item>dog</item>
+        <item>dolphin</item>
+        <item>donkey</item>
+        <item>eagle</item>
+        <item>duck</item>
+        <item>elephant</item>
+        <item>fish</item>
+        <item>fox</item>
+        <item>fly</item>
+        <item>frog</item>
+    </string-array>
+
+    <string-array name="countriesTopic">
+        <item>australia</item>
+        <item>bahrain</item>
+        <item>brazil</item>
+        <item>burma</item>
+        <item>canada</item>
+        <item>argentine</item>
+        <item>france</item>
+        <item>denmark</item>
+        <item>egypt</item>
+        <item>ghana</item>
+        <item>india</item>
+        <item>japan</item>
+        <item>china</item>
+        <item>iran</item>
+        <item>iraq</item>
+        <item>italy</item>
+        <item>libya</item>
+        <item>mali</item>
+        <item>nepal</item>
+        <item>oman</item>
+        <item>qatar</item>
+    </string-array>
 </resources>
