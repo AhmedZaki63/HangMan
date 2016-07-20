@@ -27,6 +27,7 @@ public class StartPage extends AppCompatActivity {
         setContentView(R.layout.activity_start_page);
         mToolBar=(Toolbar)findViewById(R.id.start_toolbar);
         mToolBar.setTitle("Start");
+        mToolBar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(mToolBar);
         start = (Button)findViewById(R.id.btnStart);
         takeeName=(EditText)findViewById(R.id.takeName);

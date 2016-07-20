@@ -30,6 +30,7 @@ public class Choosing extends AppCompatActivity {
         catar = getResources().getStringArray(R.array.category);
         mToolBar=(Toolbar)findViewById(R.id.choose_toolbar);
         mToolBar.setTitle("Choose Category");
+        mToolBar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(mToolBar);
         Bundle b1=getIntent().getExtras();
         name=b1.getString("name");
