@@ -5,26 +5,37 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class GameZaki extends AppCompatActivity {
 
     public static String choice;
+    TextView show;
+    String word, originalWord;
+    String name;
+    MediaPlayer backgroundMusic, correctChoice, wrongChoice;
+    ImageView image;
+    int lives = 5;
+    Random rand = new Random();
+    Random rand1 = new Random();
+    int n; // random number
+    Toolbar myToolBar;
+    String[] animeTopic, moviesTopic, teamTopic, gamesTopic, colorsTopic, fruitsTopic, vegetablesTopic, animalsTopic, countriesTopic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_zaki);
         image = (ImageView) findViewById(R.id.imageView);
-        mySound = MediaPlayer.create(this, R.raw.androids);
-        mySound.setLooping(true);
-        mySound.start();
-        show=(TextView) findViewById(R.id.viewUser);
+        backgroundMusic = MediaPlayer.create(this, R.raw.androids);
+        backgroundMusic.setLooping(true);
+        backgroundMusic.start();
+        correctChoice = MediaPlayer.create(this, R.raw.bubble_clap);
+        wrongChoice = MediaPlayer.create(this, R.raw.error_alert);
+        show = (TextView) findViewById(R.id.viewUser);
         animeTopic = getResources().getStringArray(R.array.animeTopic);
         animalsTopic = getResources().getStringArray(R.array.animalsTopic);
         moviesTopic = getResources().getStringArray(R.array.moviesTopic);
@@ -32,100 +43,41 @@ public class GameZaki extends AppCompatActivity {
         gamesTopic = getResources().getStringArray(R.array.gamesTopic);
         colorsTopic = getResources().getStringArray(R.array.colorsTopic);
         fruitsTopic = getResources().getStringArray(R.array.fruitsTopic);
-        txt=(TextView) findViewById(R.id.textView);
         vegetablesTopic = getResources().getStringArray(R.array.vegetablesTopic);
         animalsTopic = getResources().getStringArray(R.array.animalsTopic);
         countriesTopic = getResources().getStringArray(R.array.countriesTopic);
         Bundle b = getIntent().getExtras();
         String kind = b.getString("Kind");
         name = b.getString("name");
-        switch (kind) {
-            case "Anime":
-                n = rand.nextInt(animeTopic.length);
-                word = animeTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Fruits":
-                n = rand.nextInt(fruitsTopic.length);
-                word = fruitsTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Vegetables":
-                n = rand.nextInt(vegetablesTopic.length);
-                word = vegetablesTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Movies":
-                n = rand.nextInt(moviesTopic.length);
-                word = moviesTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Games":
-                n = rand.nextInt(gamesTopic.length);
-                word = gamesTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Animals":
-                n = rand.nextInt(animalsTopic.length);
-                word = animalsTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Countries":
-                n = rand.nextInt(countriesTopic.length);
-                word = countriesTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Football Teams":
-                n = rand.nextInt(teamTopic.length);
-                word = teamTopic[n];
-                user = word.toCharArray();
-                break;
-            case "Colors":
-                n = rand.nextInt(colorsTopic.length);
-                word = colorsTopic[n];
-                user = word.toCharArray();
-                break;
+        if (word == null) {
+            select(kind);
+            word = hint(originalWord);
+            show.setText(word);
         }
-        sss = hint(word);
-        show.setText(sss);
-        user = sss.toCharArray();
     }
-    TextView show;
-    String sss;
-    TextView txt;
-    String name;
-    MediaPlayer mySound;
-    ImageView image;
-    int lives = 5;
-    Random rand = new Random();
-    Random rand1 = new Random();
-    int n; // random number
-    char one; // for the character he enter
-    String word; // the original word
-    char[] user; // user progress
-    ArrayList<Character> used = new ArrayList<>(); // used character
-    Toolbar mToolBar;
-    String[] animeTopic, moviesTopic, teamTopic, gamesTopic, colorsTopic, fruitsTopic, vegetablesTopic, animalsTopic, countriesTopic;
-
-
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("lives", lives);
+        outState.putString("progress", word);
+        outState.putString("original", originalWord);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         lives = savedInstanceState.getInt("lives");
+        word = savedInstanceState.getString("progress");
+        originalWord = savedInstanceState.getString("original");
+        show.setText(word);
         wrong();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mySound.release();
+        backgroundMusic.release();
     }
 
     public void wrong() {
@@ -148,6 +100,46 @@ public class GameZaki extends AppCompatActivity {
         }
     }
 
+    public void select(String s) {
+        switch (s) {
+            case "Anime":
+                n = rand.nextInt(animeTopic.length);
+                originalWord = animeTopic[n];
+                break;
+            case "Fruits":
+                n = rand.nextInt(fruitsTopic.length);
+                originalWord = fruitsTopic[n];
+                break;
+            case "Vegetables":
+                n = rand.nextInt(vegetablesTopic.length);
+                originalWord = vegetablesTopic[n];
+                break;
+            case "Movies":
+                n = rand.nextInt(moviesTopic.length);
+                originalWord = moviesTopic[n];
+                break;
+            case "Games":
+                n = rand.nextInt(gamesTopic.length);
+                originalWord = gamesTopic[n];
+                break;
+            case "Animals":
+                n = rand.nextInt(animalsTopic.length);
+                originalWord = animalsTopic[n];
+                break;
+            case "Countries":
+                n = rand.nextInt(countriesTopic.length);
+                originalWord = countriesTopic[n];
+                break;
+            case "Football Teams":
+                n = rand.nextInt(teamTopic.length);
+                originalWord = teamTopic[n];
+                break;
+            case "Colors":
+                n = rand.nextInt(colorsTopic.length);
+                originalWord = colorsTopic[n];
+                break;
+        }
+    }
 
     public String hint(String original) {
         int size = original.length();
@@ -183,42 +175,39 @@ public class GameZaki extends AppCompatActivity {
         return string.toString();
     }
 
-    public void checkk(){
-            txt.setText(choice);
-            if (!(word.contains(choice))){
-                lives--;
-                wrong();
+    public void check() {
+        if (!(originalWord.contains(choice))) {
+            wrongChoice.start();
+            lives--;
+            wrong();
+        } else {
+            correctChoice.start();
+            StringBuffer tryy = new StringBuffer();
+            for (int i = 0; i < originalWord.length(); i++) {
+                if (choice.charAt(0) == originalWord.charAt(i))
+                    tryy.append(choice.charAt(0));
+                else
+                    tryy.append(word.charAt(i));
             }
-            else {
-                StringBuffer tryy = new StringBuffer();
-                for (int i = 0; i < word.length(); i++) {
-                    if (choice.charAt(0) == word.charAt(i))
-                        tryy.append(choice.charAt(0));
-                    else
-                        tryy.append(user[i]);
-                }
-                sss = tryy.toString();
-                user = sss.toCharArray();
-                show.setText(sss);
-            }
+            word = tryy.toString();
+            show.setText(word);
+        }
     }
 
-    public void win(){
-        if(!(sss.contains("-"))){
-            Bundle bb=new Bundle();
-            bb.putString("name",name);
-            Intent intent=new Intent(GameZaki.this,Winn.class);
+    public void win() {
+        if (!(word.contains("-"))) {
+            Bundle bb = new Bundle();
+            bb.putString("name", name);
+            Intent intent = new Intent(GameZaki.this, Win.class);
             intent.putExtras(bb);
             startActivity(intent);
-        }
-        else if (lives==0){
-            Bundle bb=new Bundle();
-            bb.putString("name",name);
-            Intent intent=new Intent(GameZaki.this,Loose.class);
+        } else if (lives == 0) {
+            Bundle bb = new Bundle();
+            bb.putString("name", name);
+            Intent intent = new Intent(GameZaki.this, Lose.class);
             intent.putExtras(bb);
             startActivity(intent);
         }
     }
-
 
 }

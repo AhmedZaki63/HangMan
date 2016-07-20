@@ -16,35 +16,34 @@ import android.widget.Toast;
 
 public class StartPage extends AppCompatActivity {
     Button start;
-    EditText takeeName;
-    Toolbar mToolBar;
+    EditText takeName;
+    Toolbar myToolBar;
     String de = "a21a5sd";
-    String s1, s2;
+    String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
-        mToolBar = (Toolbar) findViewById(R.id.start_toolbar);
-        mToolBar.setTitle("Start");
-        mToolBar.setTitleTextColor(getResources().getColor(R.color.white));
-        setSupportActionBar(mToolBar);
+        myToolBar = (Toolbar) findViewById(R.id.start_toolbar);
+        myToolBar.setTitle("Start");
+        myToolBar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(myToolBar);
         start = (Button) findViewById(R.id.btnStart);
-        takeeName = (EditText) findViewById(R.id.takeName);
-        takeeName.setText("");
+        takeName = (EditText) findViewById(R.id.takeName);
+        takeName.setText("");
     }
 
     public void startGame(View view) {
         SharedPreferences sh = getSharedPreferences("Data", Context.MODE_PRIVATE);
-        if (TextUtils.isEmpty(takeeName.getText().toString()))
-            takeeName.setError("Empty");
+        if (TextUtils.isEmpty(takeName.getText().toString()))
+            takeName.setError("Empty");
         else {
-            s1 = takeeName.getText().toString();
-            String check = sh.getString(s1, de);
+            s = takeName.getText().toString();
+            String check = sh.getString(s, de);
             if (!(check.equals(de))) {
-                Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
                 Bundle b = new Bundle();
-                b.putString("name", s1);
+                b.putString("name", s);
                 Intent intent = new Intent(StartPage.this, Choosing.class);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -58,16 +57,16 @@ public class StartPage extends AppCompatActivity {
 
                         SharedPreferences sh = getSharedPreferences("Data", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sh.edit();
-                        editor.putString(s1, "0");
+                        editor.putString(s, "0");
                         editor.apply();
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
-                        takeeName.setText(s1);
+                        takeName.setText(s);
                     }
                 });
                 newName.setPositiveButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        takeeName.setText("");
+                        takeName.setText("");
                     }
                 });
                 newName.create().show();

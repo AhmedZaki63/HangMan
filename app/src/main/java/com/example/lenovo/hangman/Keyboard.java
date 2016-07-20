@@ -1,6 +1,5 @@
 package com.example.lenovo.hangman;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -21,8 +19,6 @@ public class Keyboard extends Fragment {
     List<ImageButton> keyboard_keys;
 
     boolean[] keys = new boolean[26];
-    MediaPlayer click;
-    GameZaki zz;
 
     @Nullable
     @Override
@@ -35,7 +31,7 @@ public class Keyboard extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        click = MediaPlayer.create(getActivity(), R.raw.bubble_clap);
+
         if (savedInstanceState != null) {
             keys = savedInstanceState.getBooleanArray("key");
             for (int i = 0; i < 26; i++)
@@ -47,13 +43,12 @@ public class Keyboard extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // Save state
+        // Save keys state
         outState.putBooleanArray("key", keys);
     }
 
     @OnClick({R.id.a_btn, R.id.b_btn, R.id.c_btn, R.id.d_btn, R.id.e_btn, R.id.f_btn, R.id.g_btn, R.id.h_btn, R.id.i_btn, R.id.j_btn, R.id.k_btn, R.id.l_btn, R.id.m_btn, R.id.n_btn, R.id.o_btn, R.id.p_btn, R.id.q_btn, R.id.r_btn, R.id.s_btn, R.id.t_btn, R.id.u_btn, R.id.v_btn, R.id.w_btn, R.id.x_btn, R.id.y_btn, R.id.z_btn})
     public void onClick(View v) {
-        click.start();
         switch (v.getId()) {
             case R.id.a_btn:
                 keyboard_keys.get(0).setVisibility(View.INVISIBLE);
@@ -187,8 +182,8 @@ public class Keyboard extends Fragment {
                 GameZaki.choice = "z";
                 break;
         }
-        ((GameZaki)getActivity()).checkk();
-        ((GameZaki)getActivity()).win();
 
+        ((GameZaki) getActivity()).check();
+        ((GameZaki) getActivity()).win();
     }
 }

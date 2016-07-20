@@ -13,24 +13,24 @@ import android.widget.ListView;
 
 public class Choosing extends AppCompatActivity {
     ListView list;
-    String name;
-    Toolbar mToolBar;
+    //String name;
+    Toolbar myToolBar;
     ArrayAdapter<String> adapter;
-    String[] catar;
+    String[] category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosing);
         list = (ListView) findViewById(R.id.listView);
-        catar = getResources().getStringArray(R.array.category);
-        mToolBar = (Toolbar) findViewById(R.id.choose_toolbar);
-        mToolBar.setTitle("Choose Category");
-        mToolBar.setTitleTextColor(getResources().getColor(R.color.white));
-        setSupportActionBar(mToolBar);
+        category = getResources().getStringArray(R.array.category);
+        myToolBar = (Toolbar) findViewById(R.id.choose_toolbar);
+        myToolBar.setTitle("Choose Category");
+        myToolBar.setTitleTextColor(getResources().getColor(R.color.white));
+        setSupportActionBar(myToolBar);
         Bundle b1 = getIntent().getExtras();
-        name = b1.getString("name");
-        adapter = new ArrayAdapter<>(this, R.layout.list_custom_try1, R.id.listItem, catar);
+        //name = b1.getString("name");
+        adapter = new ArrayAdapter<>(this, R.layout.list_custom_try1, R.id.listItem, category);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,7 +44,7 @@ public class Choosing extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Bundle b = new Bundle();
                         b.putString("Kind", adapter.getItem(position));
-                        b.putString("name", name);
+                        //b.putString("name", name);
                         Intent intent = new Intent(Choosing.this, GameZaki.class);
                         intent.putExtras(b);
                         startActivity(intent);
