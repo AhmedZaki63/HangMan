@@ -29,6 +29,7 @@ public class Choosing extends AppCompatActivity {
         list=(ListView)findViewById(R.id.listView);
         catar = getResources().getStringArray(R.array.category);
         mToolBar=(Toolbar)findViewById(R.id.choose_toolbar);
+        mToolBar.setTitle("Choose Category");
         setSupportActionBar(mToolBar);
         Bundle b1=getIntent().getExtras();
         name=b1.getString("name");
