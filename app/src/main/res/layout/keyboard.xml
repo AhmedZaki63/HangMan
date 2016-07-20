@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/keyboard"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,7 +19,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:onClick="onBtnClicked"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/a" />
 
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/b" />
 
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/c" />
 
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/d" />
 
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/e" />
 
@@ -69,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/f" />
 
@@ -79,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/g" />
 
@@ -89,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/h" />
 
@@ -99,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/i" />
 
@@ -120,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/j" />
 
@@ -130,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/k" />
 
@@ -140,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/l" />
 
@@ -150,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/m" />
 
@@ -160,7 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/n" />
 
@@ -170,7 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/o" />
 
@@ -180,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/p" />
 
@@ -190,7 +191,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/q" />
 
@@ -200,7 +201,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/r" />
     </LinearLayout>
@@ -220,7 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/s" />
 
@@ -230,7 +231,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/t" />
 
@@ -240,7 +241,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/u" />
 
@@ -250,7 +251,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/v" />
 
@@ -260,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/w" />
 
@@ -270,7 +271,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/x" />
 
@@ -280,7 +281,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/y" />
 
@@ -290,7 +291,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@color/keyboard"
+            android:background="@color/black"
             android:scaleType="fitCenter"
             android:src="@drawable/z" />
 
