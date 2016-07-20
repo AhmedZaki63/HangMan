@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.lenovo.hangman.Game">
+
+
+    <include layout="@layout/tool_bar"
+        android:id="@+id/game_toolbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/vieww"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/game_toolbar"
+        android:layout_alignLeft="@+id/show"
+        android:layout_alignStart="@+id/show" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/show"
+        android:textColor="@color/black"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/vieww"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="word"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:ems="10"
+        android:id="@+id/take"
+        android:textAlignment="center"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/show"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/done"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:layout_marginBottom="29dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

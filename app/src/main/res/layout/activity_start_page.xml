@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.example.lenovo.hangman.StartPage">
+
+
+    <include layout="@layout/tool_bar"
+        android:id="@+id/start_toolbar"/>
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Enter Your Name"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:ems="10"
+        android:id="@+id/takeName"
+        android:textCursorDrawable="@color/black"
+        android:textColor="@color/black"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/start_toolbar"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/btnStart"
+        android:onClick="startGame"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="54dp" />
+
+</RelativeLayout>
