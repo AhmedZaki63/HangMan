@@ -8,40 +8,37 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
-/**
- * Created by Lenovo on 7/14/2016.
- */
 public class Names {
 
 
-    Namess  names;
+    Namess names;
+
     public Names(Context context) {
 
         names = new Namess(context);
     }
 
     //Insert
-    public long nameInsert(String name){
+    public long nameInsert(String name) {
 
         SQLiteDatabase sqLiteDatabase = names.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(names.name,name);
-        contentValues.put(names.score,"0");
-        long id = sqLiteDatabase.insert(Namess.tableName,null,contentValues);
+        contentValues.put(names.name, name);
+        contentValues.put(names.score, "0");
+        long id = sqLiteDatabase.insert(Namess.tableName, null, contentValues);
         return id;
     }
 
     //Search
-    public String searchName(String name){
+    public String searchName(String name) {
         SQLiteDatabase sqLiteDatabase = names.getWritableDatabase();
 
-        String [] columns = {Namess.name};
+        String[] columns = {Namess.name};
 
-        Cursor cursor = sqLiteDatabase.query(Namess.tableName,columns,Namess.name+" = '"+name+"'" ,null,null,null,null);
+        Cursor cursor = sqLiteDatabase.query(Namess.tableName, columns, Namess.name + " = '" + name + "'", null, null, null, null);
 
-        StringBuffer stringBuffer= new StringBuffer();
-        while (cursor.moveToNext())
-        {
+        StringBuffer stringBuffer = new StringBuffer();
+        while (cursor.moveToNext()) {
 
             int index3 = cursor.getColumnIndex(Namess.name);
             String namee = cursor.getString(index3);
@@ -50,16 +47,16 @@ public class Names {
         }
         return stringBuffer.toString();
     }
-    public String searchScore(String name){
+
+    public String searchScore(String name) {
         SQLiteDatabase sqLiteDatabase = names.getWritableDatabase();
 
-        String [] columns = {Namess.name, Namess.score};
+        String[] columns = {Namess.name, Namess.score};
 
-        Cursor cursor = sqLiteDatabase.query(Namess.tableName,columns,Namess.name+" = '"+name+"'" ,null,null,null,null);
+        Cursor cursor = sqLiteDatabase.query(Namess.tableName, columns, Namess.name + " = '" + name + "'", null, null, null, null);
 
-        StringBuffer stringBuffer= new StringBuffer();
-        while (cursor.moveToNext())
-        {
+        StringBuffer stringBuffer = new StringBuffer();
+        while (cursor.moveToNext()) {
 
             int index3 = cursor.getColumnIndex(Namess.score);
             String scoree = cursor.getString(index3);
@@ -70,12 +67,12 @@ public class Names {
     }
 
     //Update
-    public void updateScore(String name,String newScore){
-        SQLiteDatabase db=names.getWritableDatabase();
+    public void updateScore(String name, String newScore) {
+        SQLiteDatabase db = names.getWritableDatabase();
         //db.execSQL("update TRY11 set password='" + pass + "'where Username="+name);
-        ContentValues c=new ContentValues();
-        c.put("Score",newScore);
-        db.update("DATAUSER",c,"Name = ? ",new String[] {name});
+        ContentValues c = new ContentValues();
+        c.put("Score", newScore);
+        db.update("DATAUSER", c, "Name = ? ", new String[]{name});
 
     }
 
@@ -89,9 +86,9 @@ public class Names {
         private static final String UID = "id";
         private static final String name = "Name";
         private static final String score = "Score";
-        private static final String DROP_TABLE = "DROP TABLE IF EXISTS "+tableName;
-        private static final String CREATE_TABLE = "CREATE TABLE "+tableName+
-                " ("+UID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+name+" VARCHAR(255), "+score+" VARCHAR(255));";
+        private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + tableName;
+        private static final String CREATE_TABLE = "CREATE TABLE " + tableName +
+                " (" + UID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + name + " VARCHAR(255), " + score + " VARCHAR(255));";
         private Context context;
 
 
@@ -103,9 +100,9 @@ public class Names {
         @Override
         public void onCreate(SQLiteDatabase db) {
 
-            try{
+            try {
                 db.execSQL(CREATE_TABLE);
-            }catch (SQLException e){
+            } catch (SQLException e) {
                 Toast.makeText(context, "due to: " + e, Toast.LENGTH_LONG).show();
             }
 
@@ -115,11 +112,11 @@ public class Names {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
 
-            try{
+            try {
                 db.execSQL(DROP_TABLE);
                 onCreate(db);
-            }catch (SQLException e){
-                Toast.makeText(context,"due to: "+e,Toast.LENGTH_LONG).show();
+            } catch (SQLException e) {
+                Toast.makeText(context, "due to: " + e, Toast.LENGTH_LONG).show();
             }
 
         }
