@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 public class StartPage extends AppCompatActivity {
     Button start;
-    Names name;
     EditText takeeName;
     Toolbar mToolBar;
     String de = "a21a5sd";
@@ -33,7 +32,6 @@ public class StartPage extends AppCompatActivity {
         start = (Button) findViewById(R.id.btnStart);
         takeeName = (EditText) findViewById(R.id.takeName);
         takeeName.setText("");
-        name = new Names(this);
     }
 
     public void startGame(View view) {
