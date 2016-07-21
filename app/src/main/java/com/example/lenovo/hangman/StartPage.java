@@ -19,7 +19,7 @@ public class StartPage extends AppCompatActivity {
     EditText takeName;
     Toolbar myToolBar;
     String de = "a21a5sd";
-    String s;
+    public String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class StartPage extends AppCompatActivity {
         takeName = (EditText) findViewById(R.id.takeName);
         takeName.setText("");
     }
+
 
     public void startGame(View view) {
         SharedPreferences sh = getSharedPreferences("Data", Context.MODE_PRIVATE);
@@ -73,4 +74,5 @@ public class StartPage extends AppCompatActivity {
             }
         }
     }
+    
 }
