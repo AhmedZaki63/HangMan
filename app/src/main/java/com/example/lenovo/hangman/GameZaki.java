@@ -47,8 +47,7 @@ public class GameZaki extends AppCompatActivity {
         countriesTopic = getResources().getStringArray(R.array.countriesTopic);
         Bundle b = getIntent().getExtras();
         String kind = b.getString("Kind");
-        word="saadasdad";
-        if (word.equals("saadasdad")) {
+        if (word==null) {
             select(kind);
             word = hint(originalWord);
             show.setText(word);
@@ -203,9 +202,11 @@ public class GameZaki extends AppCompatActivity {
         if (!(word.contains("-"))) {
             Intent intent = new Intent(GameZaki.this, Win.class);
             startActivity(intent);
+            word=null;
         } else if (lives == 0) {
             Intent intent = new Intent(GameZaki.this, Lose.class);
             startActivity(intent);
+            word=null;
         }
     }
 
