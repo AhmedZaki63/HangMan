@@ -14,15 +14,14 @@ public class GameZaki extends AppCompatActivity {
 
     public static String choice;
     TextView show;
-    String word, originalWord;
-    String name;
+    public static String word, originalWord;
+    public static char hint1, hint2;
     MediaPlayer backgroundMusic, correctChoice, wrongChoice;
     ImageView image;
     int lives = 5;
     Random rand = new Random();
     Random rand1 = new Random();
     int n; // random number
-    Toolbar myToolBar;
     String[] animeTopic, moviesTopic, teamTopic, gamesTopic, colorsTopic, fruitsTopic, vegetablesTopic, animalsTopic, countriesTopic;
 
     @Override
@@ -48,8 +47,8 @@ public class GameZaki extends AppCompatActivity {
         countriesTopic = getResources().getStringArray(R.array.countriesTopic);
         Bundle b = getIntent().getExtras();
         String kind = b.getString("Kind");
-        name = b.getString("name");
-        if (word == null) {
+        word="saadasdad";
+        if (word.equals("saadasdad")) {
             select(kind);
             word = hint(originalWord);
             show.setText(word);
@@ -80,6 +79,7 @@ public class GameZaki extends AppCompatActivity {
         backgroundMusic.release();
     }
 
+    //for hangman photo
     public void wrong() {
         switch (lives) {
             case 4:
@@ -100,6 +100,7 @@ public class GameZaki extends AppCompatActivity {
         }
     }
 
+    //select word
     public void select(String s) {
         switch (s) {
             case "Anime":
@@ -141,6 +142,7 @@ public class GameZaki extends AppCompatActivity {
         }
     }
 
+    //hint
     public String hint(String original) {
         int size = original.length();
         StringBuffer string;
@@ -151,23 +153,24 @@ public class GameZaki extends AppCompatActivity {
             while ((n1 == n2) || (original.charAt(n1) == original.charAt(n2))) {
                 n2 = rand1.nextInt(size);
             }
-            char x1 = original.charAt(n1), x2 = original.charAt(n2);
+            hint1 = original.charAt(n1);
+            hint2 = original.charAt(n2);
             for (int i = 0; i < size; i++) {
-                if ((x1 == original.charAt(i)) || (x2 == original.charAt(i))) {
-                    if (x1 == original.charAt(i))
-                        string.append(x1);
-                    if (x2 == original.charAt(i))
-                        string.append(x2);
+                if ((hint1 == original.charAt(i)) || (hint2 == original.charAt(i))) {
+                    if (hint1 == original.charAt(i))
+                        string.append(hint1);
+                    if (hint2 == original.charAt(i))
+                        string.append(hint2);
                 } else
                     string.append("-");
             }
         } else {
             string = new StringBuffer();
             int nn1 = rand1.nextInt(size);
-            char xx1 = original.charAt(nn1);
+            hint1 = original.charAt(nn1);
             for (int i = 0; i < size; i++) {
-                if (xx1 == original.charAt(i))
-                    string.append(xx1);
+                if (hint1 == original.charAt(i))
+                    string.append(hint1);
                 else
                     string.append("-");
             }
@@ -175,6 +178,7 @@ public class GameZaki extends AppCompatActivity {
         return string.toString();
     }
 
+    //check for the character
     public void check() {
         if (!(originalWord.contains(choice))) {
             wrongChoice.start();
@@ -194,18 +198,13 @@ public class GameZaki extends AppCompatActivity {
         }
     }
 
+    //check for win or lose
     public void win() {
         if (!(word.contains("-"))) {
-            Bundle bb = new Bundle();
-            bb.putString("name", name);
             Intent intent = new Intent(GameZaki.this, Win.class);
-            intent.putExtras(bb);
             startActivity(intent);
         } else if (lives == 0) {
-            Bundle bb = new Bundle();
-            bb.putString("name", name);
             Intent intent = new Intent(GameZaki.this, Lose.class);
-            intent.putExtras(bb);
             startActivity(intent);
         }
     }

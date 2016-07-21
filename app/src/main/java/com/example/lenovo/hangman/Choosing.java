@@ -1,8 +1,10 @@
 package com.example.lenovo.hangman;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +16,6 @@ import android.widget.Toast;
 
 public class Choosing extends AppCompatActivity {
     ListView list;
-    //String name;
     Toolbar myToolBar;
     ArrayAdapter<String> adapter;
     String[] category;
@@ -29,8 +30,7 @@ public class Choosing extends AppCompatActivity {
         myToolBar.setTitle("Choose Category");
         myToolBar.setTitleTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(myToolBar);
-        Bundle b1 = getIntent().getExtras();
-        //name = b1.getString("name");
+
         adapter = new ArrayAdapter<>(this, R.layout.list_custom_try1, R.id.listItem, category);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -45,7 +45,6 @@ public class Choosing extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Bundle b = new Bundle();
                         b.putString("Kind", adapter.getItem(position));
-                        //b.putString("name", name);
                         Intent intent = new Intent(Choosing.this, GameZaki.class);
                         intent.putExtras(b);
                         startActivity(intent);

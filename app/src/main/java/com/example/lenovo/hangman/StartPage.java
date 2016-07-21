@@ -43,10 +43,11 @@ public class StartPage extends AppCompatActivity {
             s = takeName.getText().toString();
             String check = sh.getString(s, de);
             if (!(check.equals(de))) {
-                Bundle b = new Bundle();
-                b.putString("name", s);
+                SharedPreferences sh1 = getSharedPreferences("User", MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = sh1.edit();
+                editor1.putString("key",s);
+                editor1.apply();
                 Intent intent = new Intent(StartPage.this, Choosing.class);
-                intent.putExtras(b);
                 startActivity(intent);
             } else {
                 AlertDialog.Builder newName = new AlertDialog.Builder(StartPage.this);
@@ -57,8 +58,12 @@ public class StartPage extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                         SharedPreferences sh = getSharedPreferences("Data", MODE_PRIVATE);
+                        SharedPreferences sh1 = getSharedPreferences("User", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sh.edit();
+                        SharedPreferences.Editor editor1 = sh1.edit();
                         editor.putString(s, "0");
+                        editor1.putString("key",s);
+                        editor1.apply();
                         editor.apply();
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
                         takeName.setText(s);
@@ -74,5 +79,5 @@ public class StartPage extends AppCompatActivity {
             }
         }
     }
-    
+
 }
