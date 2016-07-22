@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,27 +37,11 @@ public class Choosing extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                String sg = adapter.getItem(position);
-                AlertDialog.Builder newName = new AlertDialog.Builder(Choosing.this);
-                newName.setMessage("Do you want to choose " + sg + "?!");
-                newName.setTitle("category!!");
-                newName.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle b = new Bundle();
-                        b.putString("Kind", adapter.getItem(position));
-                        Intent intent = new Intent(Choosing.this, GameZaki.class);
-                        intent.putExtras(b);
-                        startActivity(intent);
-                    }
-                });
-                newName.setPositiveButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                newName.create().show();
+                Bundle b = new Bundle();
+                b.putString("Kind", adapter.getItem(position));
+                Intent intent = new Intent(Choosing.this, GameZaki.class);
+                intent.putExtras(b);
+                startActivity(intent);
             }
         });
     }
@@ -65,6 +51,17 @@ public class Choosing extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.setting_menu, menu);
         return true;
     }
+    /*
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem settingsMenuItem = menu.findItem(R.id.menu);
+        SpannableString s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.white)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        return super.onPrepareOptionsMenu(menu);
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

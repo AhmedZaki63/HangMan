@@ -8,7 +8,9 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +32,7 @@ public class StartPage extends AppCompatActivity {
         myToolBar = (Toolbar) findViewById(R.id.start_toolbar);
         myToolBar.setTitle("Start");
         myToolBar.setTitleTextColor(getResources().getColor(R.color.white));
+        myToolBar.getMenu();
         setSupportActionBar(myToolBar);
         start = (Button) findViewById(R.id.btnStart);
         takeName = (EditText) findViewById(R.id.takeName);
@@ -45,6 +48,17 @@ public class StartPage extends AppCompatActivity {
 
         return true;
     }
+    /*
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        MenuItem settingsMenuItem = menu.findItem(R.id.menu);
+        SpannableString s = new SpannableString(settingsMenuItem.getTitle());
+        s.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.white)), 0, s.length(), 0);
+        settingsMenuItem.setTitle(s);
+
+        return super.onPrepareOptionsMenu(menu);
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -87,7 +101,8 @@ public class StartPage extends AppCompatActivity {
                         editor1.apply();
                         editor.apply();
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
-                        takeName.setText(s);
+                        Intent intent = new Intent(StartPage.this, Choosing.class);
+                        startActivity(intent);
                     }
                 });
                 newName.setPositiveButton("No", new DialogInterface.OnClickListener() {

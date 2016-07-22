@@ -8,4 +8,6 @@
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="keyboard">#000000</color>
+    <color name="test1">#ff0f0f</color>
+    <color name="test2">#0ff</color>
 </resources>
