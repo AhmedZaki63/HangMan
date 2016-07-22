@@ -38,26 +38,26 @@ public class Keyboard extends Fragment {
                 if (keys[i])
                     keyboard_keys.get(i).setVisibility(View.INVISIBLE);
         }
-        String word=GameZaki.originalWord;
-        if(word.length()>5){
-            char hint1=GameZaki.hint1;
-            char hint2=GameZaki.hint2;
-            int n1=hint1-97,n2=hint2-97;
+        String word = GameZaki.originalWord;
+        if (word.length() > 5) {
+            char hint1 = GameZaki.hint1;
+            char hint2 = GameZaki.hint2;
+            int n1 = hint1 - 97, n2 = hint2 - 97;
             keyboard_keys.get(n1).setVisibility(View.INVISIBLE);
             keyboard_keys.get(n2).setVisibility(View.INVISIBLE);
-            keys[n1]=true;
-            keys[n2]=true;
-        }
-        else{
-            char hint1=GameZaki.hint1;
-            int n1=hint1-97;
+            keys[n1] = true;
+            keys[n2] = true;
+        } else {
+            char hint1 = GameZaki.hint1;
+            int n1 = hint1 - 97;
             keyboard_keys.get(n1).setVisibility(View.INVISIBLE);
-            keys[n1]=true;
+            keys[n1] = true;
         }
 
     }
 
     @Override
+
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save keys state

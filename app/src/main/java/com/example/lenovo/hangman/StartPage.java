@@ -32,6 +32,9 @@ public class StartPage extends AppCompatActivity {
         start = (Button) findViewById(R.id.btnStart);
         takeName = (EditText) findViewById(R.id.takeName);
         takeName.setText("");
+        SharedPreferences prefs = getSharedPreferences("Sound", MODE_PRIVATE);
+        Setting.m = prefs.getBoolean("music", true);
+        Setting.s = prefs.getBoolean("sound", true);
     }
 
 
@@ -45,7 +48,7 @@ public class StartPage extends AppCompatActivity {
             if (!(check.equals(de))) {
                 SharedPreferences sh1 = getSharedPreferences("User", MODE_PRIVATE);
                 SharedPreferences.Editor editor1 = sh1.edit();
-                editor1.putString("key",s);
+                editor1.putString("key", s);
                 editor1.apply();
                 Intent intent = new Intent(StartPage.this, Choosing.class);
                 startActivity(intent);
@@ -62,7 +65,7 @@ public class StartPage extends AppCompatActivity {
                         SharedPreferences.Editor editor = sh.edit();
                         SharedPreferences.Editor editor1 = sh1.edit();
                         editor.putString(s, "0");
-                        editor1.putString("key",s);
+                        editor1.putString("key", s);
                         editor1.apply();
                         editor.apply();
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
@@ -80,4 +83,8 @@ public class StartPage extends AppCompatActivity {
         }
     }
 
+    public void Setting(View view) {
+
+        startActivity(new Intent(StartPage.this, Setting.class));
+    }
 }

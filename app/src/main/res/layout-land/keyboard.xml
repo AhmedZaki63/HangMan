@@ -312,7 +312,6 @@
 
         <ImageButton
             android:id="@+id/z_btn"
-
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"

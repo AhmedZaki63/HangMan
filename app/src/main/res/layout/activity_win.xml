@@ -14,22 +14,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Winner :D"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="70sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp" />
+        android:layout_marginTop="170dp"
+        android:text="Winner :D"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/Large_Text" />
 
     <TextView
+        android:id="@+id/scoreShowWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:textSize="35sp"
-        android:id="@+id/scoreShowWin"
-        android:layout_marginTop="47dp"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/Medium_Text"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="@dimen/Medium_Text" />
 
 </RelativeLayout>

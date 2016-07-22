@@ -18,13 +18,14 @@ public class Lose extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lose);
         lose = MediaPlayer.create(this, R.raw.wrong_answer);
-        lose.start();
-        view=(TextView)findViewById(R.id.scoreShowLose);
-        SharedPreferences sh1= getSharedPreferences("Data", Context.MODE_PRIVATE);
-        SharedPreferences sh2= getSharedPreferences("User", Context.MODE_PRIVATE);
-        String name=sh2.getString("key", "asdjs4545dfsa");
-        StringBuffer show=new StringBuffer();
-        show.append("Your Score is : " + sh1.getString(name,"dadasdad"));
+        if (Setting.s)
+            lose.start();
+        view = (TextView) findViewById(R.id.scoreShowLose);
+        SharedPreferences sh1 = getSharedPreferences("Data", Context.MODE_PRIVATE);
+        SharedPreferences sh2 = getSharedPreferences("User", Context.MODE_PRIVATE);
+        String name = sh2.getString("key", "asdjs4545 f a");
+        StringBuffer show = new StringBuffer();
+        show.append("Your Score is : " + sh1.getString(name, "dadasdad"));
         view.setText(show.toString());
     }
 

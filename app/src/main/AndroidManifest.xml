@@ -19,6 +19,7 @@
         <activity android:name=".GameZaki" />
         <activity android:name=".Win" />
         <activity android:name=".Lose" />
+        <activity android:name=".Setting" />
     </application>
 
 </manifest>

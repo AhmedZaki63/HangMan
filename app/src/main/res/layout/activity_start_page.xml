@@ -18,25 +18,41 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/start_toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/Large_Text"
         android:ems="10"
         android:hint="Enter Your Name"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textCursorDrawable="@color/black" />
+        android:textCursorDrawable="@color/black"
+        android:textSize="@dimen/Medium_Text" />
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="54dp"
+        android:layout_marginBottom="@dimen/Medium_Text"
         android:background="@color/black"
         android:onClick="startGame"
+        android:padding="10dp"
         android:text="Start"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="@dimen/Small_Text" />
+
+    <Button
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/black"
+        android:onClick="Setting"
+        android:padding="10sp"
+        android:text="Setting"
+        android:textColor="@color/white"
+        android:textSize="@dimen/Small_Text" />
 
 </RelativeLayout>

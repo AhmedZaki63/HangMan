@@ -24,9 +24,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Ahmed"
+            android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="60dp" />
+            android:textSize="@dimen/Medium_Text" />
 
         <ImageView
             android:id="@+id/imageView"

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +30,8 @@ public class GameZaki extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.imageView);
         backgroundMusic = MediaPlayer.create(this, R.raw.androids);
         backgroundMusic.setLooping(true);
-        backgroundMusic.start();
+        if (Setting.m)
+            backgroundMusic.start();
         correctChoice = MediaPlayer.create(this, R.raw.bubble_clap);
         wrongChoice = MediaPlayer.create(this, R.raw.error_alert);
         show = (TextView) findViewById(R.id.viewUser);
@@ -47,7 +47,7 @@ public class GameZaki extends AppCompatActivity {
         countriesTopic = getResources().getStringArray(R.array.countriesTopic);
         Bundle b = getIntent().getExtras();
         String kind = b.getString("Kind");
-        if (word==null) {
+        if (savedInstanceState == null) {
             select(kind);
             word = hint(originalWord);
             show.setText(word);
@@ -180,11 +180,13 @@ public class GameZaki extends AppCompatActivity {
     //check for the character
     public void check() {
         if (!(originalWord.contains(choice))) {
-            wrongChoice.start();
+            if (Setting.s)
+                wrongChoice.start();
             lives--;
             wrong();
         } else {
-            correctChoice.start();
+            if (Setting.s)
+                correctChoice.start();
             StringBuffer tryy = new StringBuffer();
             for (int i = 0; i < originalWord.length(); i++) {
                 if (choice.charAt(0) == originalWord.charAt(i))
@@ -202,11 +204,9 @@ public class GameZaki extends AppCompatActivity {
         if (!(word.contains("-"))) {
             Intent intent = new Intent(GameZaki.this, Win.class);
             startActivity(intent);
-            word=null;
         } else if (lives == 0) {
             Intent intent = new Intent(GameZaki.this, Lose.class);
             startActivity(intent);
-            word=null;
         }
     }
 
