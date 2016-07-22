@@ -42,17 +42,4 @@
         android:textColor="@color/white"
         android:textSize="@dimen/Small_Text" />
 
-    <Button
-        android:id="@+id/setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@color/black"
-        android:onClick="Setting"
-        android:padding="10sp"
-        android:text="Setting"
-        android:textColor="@color/white"
-        android:textSize="@dimen/Small_Text" />
-
 </RelativeLayout>
