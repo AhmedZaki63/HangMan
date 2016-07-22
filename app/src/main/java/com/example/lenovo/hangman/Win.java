@@ -23,18 +23,12 @@ public class Win extends AppCompatActivity {
         if (Setting.s)
             win.start();
         view = (TextView) findViewById(R.id.scoreShowWin);
-        SharedPreferences sh = getSharedPreferences("Data", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sh.edit();
         SharedPreferences sh1 = getSharedPreferences("Data", Context.MODE_PRIVATE);
         SharedPreferences sh2 = getSharedPreferences("User", Context.MODE_PRIVATE);
         String name = sh2.getString("key", "asdjs4545dfsa");
-        BigInteger n1 = new BigInteger(sh1.getString(name, "ad565"));
-        BigInteger n2 = new BigInteger("1");
-        n1 = n1.add(n2);
-        editor.putString(name, n1.toString());
-        editor.apply();
+        String score=sh1.getString(name,"adasdfs");
         StringBuffer showScore = new StringBuffer();
-        showScore.append("Your Score is : " + n1.toString());
+        showScore.append("Your Score is : " + score);
         view.setText(showScore.toString());
 
     }
