@@ -6,38 +6,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Setting extends AppCompatActivity {
 
     public static boolean m, s;
-    Button music, sound, logOut;
+    ImageButton music, sound;
+    Button logOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        music = (Button) findViewById(R.id.music_btn);
+        music = (ImageButton) findViewById(R.id.music_btn);
         music.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (m) {
-                    music.setText("OFF");
+                    music.setImageResource(R.drawable.music_off);
                     m = false;
                 } else {
-                    music.setText("ON");
+                    music.setImageResource(R.drawable.music_on);
                     m = true;
                 }
             }
         });
-        sound = (Button) findViewById(R.id.sound_btn);
+        sound = (ImageButton) findViewById(R.id.sound_btn);
         sound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (s) {
-                    sound.setText("OFF");
+                    sound.setImageResource(R.drawable.sound_off);
                     s = false;
                 } else {
-                    sound.setText("ON");
+                    sound.setImageResource(R.drawable.sound_on);
                     s = true;
                 }
             }
@@ -52,13 +54,13 @@ public class Setting extends AppCompatActivity {
             }
         });
         if (m)
-            music.setText("ON");
+            music.setImageResource(R.drawable.music_on);
         else
-            music.setText("OFF");
+            music.setImageResource(R.drawable.music_off);
         if (s)
-            sound.setText("ON");
+            sound.setImageResource(R.drawable.sound_on);
         else
-            sound.setText("OFF");
+            sound.setImageResource(R.drawable.sound_off);
     }
 
     @Override

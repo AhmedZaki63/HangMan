@@ -39,24 +39,22 @@ public class StartPage extends AppCompatActivity {
         Setting.s = prefs.getBoolean("sound", true);
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.setting_menu, menu);
 
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        int id=item.getItemId();
-        if(id==R.id.menuu) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu) {
             Intent intent = new Intent(StartPage.this, Setting.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     public void startGame(View view) {
         SharedPreferences sh = getSharedPreferences("Data", Context.MODE_PRIVATE);
