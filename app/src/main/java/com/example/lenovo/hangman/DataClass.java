@@ -54,5 +54,18 @@ public class DataClass {
         return getScore.getString(name,de);
     }
 
+    public boolean lastt(){
+        if(getName.getBoolean("last",false)){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public void setLog(boolean b){
+        setName.putBoolean("last",b);
+        setName.apply();
+    }
+
 
 }

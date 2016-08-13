@@ -13,11 +13,13 @@ public class Setting extends AppCompatActivity {
     public static boolean m, s;
     ImageButton music, sound;
     Button logOut;
+    DataClass data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        data = new DataClass(this);
         music = (ImageButton) findViewById(R.id.music_btn);
         music.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +51,7 @@ public class Setting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Setting.this, StartPage.class);
+                data.setLog(false);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

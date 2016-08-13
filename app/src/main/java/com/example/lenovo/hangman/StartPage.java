@@ -79,6 +79,7 @@ public class StartPage extends AppCompatActivity {
             s = takeName.getText().toString();
             if (data.search(s)) {
                 data.SetName(s);
+                data.setLog(true);
                 Intent intent = new Intent(StartPage.this, Choosing.class);
                 startActivity(intent);
             } else {
@@ -90,6 +91,7 @@ public class StartPage extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         data.SetNew(s);
                         data.SetName(s);
+                        data.setLog(true);
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(StartPage.this, Choosing.class);
                         startActivity(intent);
