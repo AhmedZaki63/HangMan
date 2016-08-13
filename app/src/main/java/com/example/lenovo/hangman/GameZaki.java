@@ -24,6 +24,7 @@ public class GameZaki extends AppCompatActivity {
     Random rand = new Random();
     Random rand1 = new Random();
     int n; // random number
+    DataClass data;
     String[] animeTopic, moviesTopic, teamTopic, gamesTopic, colorsTopic, fruitsTopic, vegetablesTopic, animalsTopic, countriesTopic;
 
     @Override
@@ -36,6 +37,7 @@ public class GameZaki extends AppCompatActivity {
         if (Setting.m)
             backgroundMusic.start();
         correctChoice = MediaPlayer.create(this, R.raw.bubble_clap);
+        data = new DataClass(this);
         wrongChoice = MediaPlayer.create(this, R.raw.error_alert);
         show = (TextView) findViewById(R.id.viewUser);
         animeTopic = getResources().getStringArray(R.array.animeTopic);
@@ -205,16 +207,7 @@ public class GameZaki extends AppCompatActivity {
     //check for win or lose
     public void win() {
         if (!(word.contains("-"))) {
-            SharedPreferences sh = getSharedPreferences("Data", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sh.edit();
-            SharedPreferences sh1 = getSharedPreferences("Data", Context.MODE_PRIVATE);
-            SharedPreferences sh2 = getSharedPreferences("User", Context.MODE_PRIVATE);
-            String name = sh2.getString("key", "asdjs4545dfsa");
-            BigInteger n1 = new BigInteger(sh1.getString(name, "ad565"));
-            BigInteger n2 = new BigInteger("1");
-            n1 = n1.add(n2);
-            editor.putString(name, n1.toString());
-            editor.apply();
+            data.addScore();
             Intent intent = new Intent(GameZaki.this, Win.class);
             startActivity(intent);
         } else if (lives == 0) {

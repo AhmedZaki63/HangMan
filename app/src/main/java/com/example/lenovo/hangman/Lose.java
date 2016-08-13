@@ -12,6 +12,7 @@ public class Lose extends AppCompatActivity {
 
     MediaPlayer lose;
     TextView view;
+    DataClass data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +21,9 @@ public class Lose extends AppCompatActivity {
         lose = MediaPlayer.create(this, R.raw.wrong_answer);
         if (Setting.s)
             lose.start();
+        data = new DataClass(this);
         view = (TextView) findViewById(R.id.scoreShowLose);
-        SharedPreferences sh1 = getSharedPreferences("Data", Context.MODE_PRIVATE);
-        SharedPreferences sh2 = getSharedPreferences("User", Context.MODE_PRIVATE);
-        String name = sh2.getString("key", "asdjs4545 f a");
-        StringBuffer show = new StringBuffer();
-        show.append("Your Score is : " + sh1.getString(name, "dadasdad"));
-        view.setText(show.toString());
+        view.setText("Your Score is : " + data.GetScore());
     }
 
     @Override

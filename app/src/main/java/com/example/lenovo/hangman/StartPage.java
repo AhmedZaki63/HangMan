@@ -24,6 +24,7 @@ public class StartPage extends AppCompatActivity {
     Toolbar myToolBar;
     String de = "a21a5sd";
     public String s;
+    DataClass data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class StartPage extends AppCompatActivity {
         myToolBar.setTitleTextColor(getResources().getColor(R.color.white));
         myToolBar.getMenu();
         setSupportActionBar(myToolBar);
+        data = new DataClass(this);
         start = (Button) findViewById(R.id.btnStart);
         takeName = (EditText) findViewById(R.id.takeName);
         takeName.setText("");
@@ -71,17 +73,12 @@ public class StartPage extends AppCompatActivity {
     }
 
     public void startGame(View view) {
-        SharedPreferences sh = getSharedPreferences("Data", Context.MODE_PRIVATE);
         if (TextUtils.isEmpty(takeName.getText().toString()))
             takeName.setError("Empty");
         else {
             s = takeName.getText().toString();
-            String check = sh.getString(s, de);
-            if (!(check.equals(de))) {
-                SharedPreferences sh1 = getSharedPreferences("User", MODE_PRIVATE);
-                SharedPreferences.Editor editor1 = sh1.edit();
-                editor1.putString("key", s);
-                editor1.apply();
+            if (data.search(s)) {
+                data.SetName(s);
                 Intent intent = new Intent(StartPage.this, Choosing.class);
                 startActivity(intent);
             } else {
@@ -91,15 +88,8 @@ public class StartPage extends AppCompatActivity {
                 newName.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
-                        SharedPreferences sh = getSharedPreferences("Data", MODE_PRIVATE);
-                        SharedPreferences sh1 = getSharedPreferences("User", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sh.edit();
-                        SharedPreferences.Editor editor1 = sh1.edit();
-                        editor.putString(s, "0");
-                        editor1.putString("key", s);
-                        editor1.apply();
-                        editor.apply();
+                        data.SetNew(s);
+                        data.SetName(s);
                         Toast.makeText(StartPage.this, "Done", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(StartPage.this, Choosing.class);
                         startActivity(intent);
