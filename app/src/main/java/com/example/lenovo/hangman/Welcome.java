@@ -33,6 +33,7 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 image.startAnimation(an2);
+                sh.startAnimation(an2);
                 finish();
                 if(data.lastt()){
                     Intent intent = new Intent (Welcome.this,Choosing.class);
