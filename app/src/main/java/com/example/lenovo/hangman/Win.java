@@ -1,14 +1,11 @@
 package com.example.lenovo.hangman;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.math.BigInteger;
 
 public class Win extends AppCompatActivity {
 
